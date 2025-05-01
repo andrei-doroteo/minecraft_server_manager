@@ -1,5 +1,67 @@
-class Ec2():
+"""
+ec2_controller.py
 
-    def __init__(self):
-        self.ec2_id = None
-        self.ip_address = None
+This module provides methods to control an AWS EC2 instance.
+"""
+
+import boto3
+
+
+class Ec2:
+    """
+    A class representing an AWS EC2 instance.
+
+    Attributes:
+        region (str): the AWS region of the EC2 instance. i.e. "us-east-1" or "ca-central-1".
+
+        aws_access_key (str): an AWS IAM user access key with a policy
+        that includes: RevokeSecurityGroupIngress,
+        AuthorizeSecurityGroupIngress, StartInstances, CreateTags,
+        and StopInstances. Must have access to your EC2 instance's ARN.
+
+        aws_secret_access_key (str): the AWS IAM user secret key.
+
+        ec2_instance_id (str): the AWS EC2 instance id.
+
+        ec2: a boto3 ec2 client object.
+
+        ipv4: the ipv4 of the AWS EC2 instance.
+    """
+
+    def __init__(
+        self,
+        ec2_instance_id,
+        region: str,
+        aws_access_key: str,
+        aws_secret_access_key: str,
+    ):
+        self._region = region
+        self._aws_access_key = aws_access_key
+        self._aws_secret_access_key = aws_secret_access_key
+        self._ec2_instance_id = ec2_instance_id
+        self._ec2 = None
+        self.ipv4 = ""
+
+    def start(self):
+        # !!! TODO
+        pass
+
+    def stop(self):
+        # !!! TODO
+        pass
+
+    def get_ipv4(self):
+        # !!! TODO
+        pass
+
+    def get_url(self):
+        # !!! TODO
+        pass
+
+    def create_inbound_rule(self):
+        # !!! TODO
+        pass
+
+    def delete_inbound_rule(self):
+        # !!! TODO
+        pass
