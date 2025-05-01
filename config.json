@@ -1,4 +1,5 @@
 {
-    "ec2_id" : "",
-    "cloudflare_details":""
+	"region": "us-east-1",
+	"aws_access_key_id": "REPLACE_WITH_YOUR_ACCESS_KEY",
+	"aws_secret_access_key": "REPLACE_WITH_YOUR_SECRET_KEY"
 }
