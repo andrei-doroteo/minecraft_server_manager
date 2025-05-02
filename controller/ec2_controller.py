@@ -30,11 +30,25 @@ class Ec2:
 
     def __init__(
         self,
-        ec2_instance_id,
+        ec2_instance_id: str,
         region: str,
         aws_access_key: str,
         aws_secret_access_key: str,
-    ):
+    ) -> None:
+        """Initializes an Ec2 object with the given details from AWS
+
+        Args:
+            ec2_instance_id (str): the id of an AWS EC2 instance
+
+            region (str): the region of the AWS EC2 instance
+
+            aws_access_key (str): an AWS IAM user access key id
+
+            aws_secret_access_key (str): the AWS IAM user secret access
+            key
+
+
+        """
         self._region = region
         self._aws_access_key = aws_access_key
         self._aws_secret_access_key = aws_secret_access_key
