@@ -4,7 +4,7 @@ ec2_controller.py
 This module provides methods to control an AWS EC2 instance.
 """
 
-import boto3
+from boto3 import Session
 
 
 class Ec2:
@@ -23,7 +23,7 @@ class Ec2:
 
         ec2_instance_id (str): the AWS EC2 instance id.
 
-        ec2: a boto3 ec2 client object.
+        ec2: a boto3 ec2 Session object.
 
         ipv4: the ipv4 of the AWS EC2 instance.
     """
@@ -55,6 +55,14 @@ class Ec2:
         self._ec2_instance_id = ec2_instance_id
         self._ec2 = None
         self.ipv4 = ""
+
+        session = Session(
+            aws_access_key_id=aws_access_key,
+            aws_secret_access_key=aws_secret_access_key,
+            region_name=region,
+        )
+
+        self.ec2 = session.client("ec2")
 
     def start(self):
         # !!! TODO
