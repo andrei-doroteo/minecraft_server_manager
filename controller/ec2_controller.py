@@ -53,8 +53,7 @@ class Ec2:
         self._aws_access_key = aws_access_key
         self._aws_secret_access_key = aws_secret_access_key
         self._ec2_instance_id = ec2_instance_id
-        self._ec2 = None
-        self.ipv4 = ""
+        self._ipv4 = ""
 
         session = Session(
             aws_access_key_id=aws_access_key,
@@ -62,7 +61,7 @@ class Ec2:
             region_name=region,
         )
 
-        self.ec2 = session.client("ec2")
+        self._ec2 = session.client("ec2")
 
     def start(self):
         # !!! TODO
